@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Equipe index
+{% endblock %}
+
+{% block body %}
+	<h1 class="p-4 text-center text-uppercase text-secondary">team builder
+	</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="mb-4">
+					<h2 class="mb-3">Ajouter une équipe</h2>
+					<form action="{{ path('app_equipe_ajouter') }}" method="POST">
+						<div>
+							<input class="p-1" type="text" name="epuipe_nom" placeholder="ajouter une équipe">
+							<button type="submit" class="btn btn-success">Ajouter</button>
+						</div>
+					</form>
+				</div>
+				<div class="col-8 ">
+					<table class="table table-striped">
+						<thead>
+							<th>nom</th>
+							<th>actions</th>
+						</thead>
+						<tbody>
+							{% for equipe in equipes %}
+								<tr>
+									<td>{{ equipe.nom}}</td>
+									<td>
+										<a class="btn btn-primary" href="{{ path('app_equipe_modification',{id:equipe.id}) }}"><i class="fas fa-edit"></i></a>
+										<a class="btn btn-danger" href="{{ path('app_equipe_suppression',{id:equipe.id}) }}"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<h2 class="mb-3">Ajouter une Personne</h1>
+				<div class="mb-4">
+					<form class="text-center" action="{{ path('app_personne_ajouter') }}" method="POST">
+						<div class="mb-3">
+							<input class="p-2 mb-2  form-control" type="text" name="personne_nom" placeholder="nom de la personne">
+							<input class="p-2 form-control mb-3" type="text" name="personne_prenom" placeholder="prenom de la personne">
+							<select class="form-select" name="equipe">
+								{% for equipe in equipes %}
+									<option value="{{equipe.id}}">{{equipe.nom}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<div class=" d-grid gap-2 d-md-block">
+							<button type="submit" class="btn btn-success">Ajouter personnes</button>
+						</div>
+					</form>
+				</div>
+				<div>
+					<table class="table">
+						<thead>
+							<th>nom et pernom</th>
+							<th>action</th>
+						</thead>
+						<tbody>
+							{% for personne in personnes %}
+								<tr>
+									<td>{{ personne.fullname}}</td>
+									<td>
+										<a class="btn btn-danger" href="{{ path('app_personne_supprimer',{id:personne.id}) }}"><i class="fas fa-trash"></i></a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{% endblock %}
