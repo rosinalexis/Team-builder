@@ -11,3 +11,5 @@
 - Ajouter une personne
 - Modifier une personne
 - Supprimer une personne
+
+lien vers le site : https://rosinalexis.github.io/team-builder/
