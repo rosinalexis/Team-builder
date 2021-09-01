@@ -16,6 +16,7 @@ class PersonneController extends AbstractController
      */
     public function ajouter(Request $request, EntityManagerInterface $em): Response
     {
+        dd($request->request);
         $nom = $request->request->get('personne_nom');
         $prenom = $request->request->get('personne_prenom');
 

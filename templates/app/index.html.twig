@@ -47,7 +47,7 @@
 						<div class="mb-3">
 							<input class="p-2 mb-2  form-control" type="text" name="personne_nom" placeholder="nom de la personne">
 							<input class="p-2 form-control mb-3" type="text" name="personne_prenom" placeholder="prenom de la personne">
-							<select class="form-select" name="equipe">
+							<select class="form-select" name="personne[equipes][]" id="equipe_personnes" multiple="multiple">
 								{% for equipe in equipes %}
 									<option value="{{equipe.id}}">{{equipe.nom}}</option>
 								{% endfor %}
@@ -82,4 +82,5 @@
 		</div>
 
 	</div>
+
 {% endblock %}
