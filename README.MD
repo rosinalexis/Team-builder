@@ -12,4 +12,4 @@
 - Modifier une personne
 - Supprimer une personne
 
-lien vers le site en ligne :
+lien vers le site en ligne : https://rosinalexis.github.io/team-builder/
