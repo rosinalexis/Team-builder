@@ -28,7 +28,7 @@ class EquipeController extends AbstractController
     }
 
     /**
-     * @Route("/equipe/{id}", name="app_equipe_modification", methods={"GET","POST"})
+     * @Route("/equipe/modification/{id}", name="app_equipe_modification", methods={"GET","POST"})
      */
     public function modification(Request $request, Equipe $equipe): Response
     {
