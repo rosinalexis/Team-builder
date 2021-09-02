@@ -30,7 +30,7 @@ class EquipeController extends AbstractController
     /**
      * @Route("/equipe/{id}", name="app_equipe_modification", methods={"GET","POST"})
      */
-    public function midification(Request $request, Equipe $equipe): Response
+    public function modification(Request $request, Equipe $equipe): Response
     {
         $form = $this->createForm(EquipeType::class, $equipe);
         $form->handleRequest($request);
@@ -38,7 +38,7 @@ class EquipeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('app_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->renderForm('equipe/modification.html.twig', [

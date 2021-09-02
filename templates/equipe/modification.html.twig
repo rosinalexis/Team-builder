@@ -11,13 +11,14 @@
 		<div class="col-md-6 mx-auto">
 			{{ form_start(form) }}
 			{{form_widget(form)}}
-			{{ form_end(form) }}
-
+			
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button class="btn btn-primary" type="button">Validation</button>
+				<button class="btn btn-primary" type="submit">Validation</button>
 			</div>
+			{{ form_end(form) }}
 		</div>
-
 	</div>
+
+	<a href="{{ path('app_index')}}">retour vers la page d'accueil</a>
 
 {% endblock %}
