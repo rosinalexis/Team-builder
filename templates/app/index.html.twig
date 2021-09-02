@@ -22,13 +22,20 @@
 				<div class="col-8 ">
 					<table class="table table-striped">
 						<thead>
-							<th>nom</th>
+							<th>nom de l'équipe</th>
+							<th>composition</th>
 							<th>actions</th>
 						</thead>
 						<tbody>
 							{% for equipe in equipes %}
 								<tr>
 									<td>{{ equipe.nom}}</td>
+									<td>
+									{% for personne in equipe.personnes %}
+										{{personne.fullName}} |										
+									{% endfor %}
+									
+									</td>
 									<td>
 										<a class="btn btn-primary" href="{{ path('app_equipe_modification',{id:equipe.id}) }}"><i class="fas fa-edit"></i></a>
 										<a class="btn btn-danger" href="{{ path('app_equipe_suppression',{id:equipe.id}) }}"><i class="fas fa-trash"></i></a>
